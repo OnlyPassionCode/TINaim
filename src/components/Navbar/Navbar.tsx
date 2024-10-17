@@ -1,7 +1,7 @@
 function Navbar(){
     return (
-    <nav className="mb-[45px] cart:mb-0 relative flex border-gray-200 bg-gray-900 min-h-[70px] max-h-[70px] xl:w-[calc(100%-325px)]">
-        <div className="max-w-screen-xl flex flex-wrap items-center mx-auto p-4">
+    <nav className="mb-[45px] cart:mb-0 relative flex justify-between cart:justify-start border-gray-200 bg-gray-900 min-h-[70px] max-h-[70px] xl:w-[calc(100%-325px)]">
+        <div className="max-w-screen-xl flex flex-wrap items-center cart:mx-auto p-4">
             <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="/logo.svg" className="h-8" alt="Flowbite Logo" />
                 <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">TrouveTout</span>
