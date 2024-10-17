@@ -1,19 +1,18 @@
 import Item from './Item';
 
 type CatalogItemProps = {
-    item: Item;
+    item: Item,
+    addToCart: any
 };
 
-function CatalogItem({item}: CatalogItemProps){
+function CatalogItem({item, addToCart}: CatalogItemProps){
     return (
-    <div className="flex flex-col w-[90%] max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:ml-4 mt-4">
-        <div className='flex-grow flex justify-center'>
+    <div className="flex flex-col w-[90%] max-w-[23rem] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:ml-4 mt-4">
+        <div className='flex-grow flex justify-center cursor-pointer'>
             <img className="transform transition-transform duration-300 hover:scale-105 p-8 rounded-t-lg w-[300px] h-[300px] w-full h-full object-contain" src={"/images/resized/webp/" + item.getImageUrl()} alt={item.getName()} />
         </div>
         <div className="px-5 pb-5">
-            <a href="#">
-                <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{item.getDescription()}</h5>
-            </a>
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{item.getDescription()}</h5>
             <div className="flex justify-between">
                 <div className="flex items-center mt-2.5 mb-5">
                     <div className="flex items-center space-x-1 rtl:space-x-reverse">
@@ -46,7 +45,8 @@ function CatalogItem({item}: CatalogItemProps){
             <div className="flex items-center justify-between">
                 <span className="text-3xl font-bold text-gray-900 dark:text-white">{item.getPrice()}€</span>
                 <button className={`${item.getAmount() > 0 ? '' : 'opacity-50 cursor-not-allowed'} text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
-                        disabled={item.getAmount() <= 0}>
+                        disabled={item.getAmount() <= 0} 
+                        onClick={() => addToCart(item)}>
                             Ajouter au panier
                 </button>
             </div>
@@ -63,7 +63,7 @@ export default function Catalog({items, addToCart} : CatalogProps){
     return (
         <section className='w-full lg:w-[85%] m-auto'>
             <div className="flex justify-center lg:justify-start flex-wrap">
-                {items.map((item: Item, index: number)=><CatalogItem key={index} item={item} />)}
+                {items.map((item: Item, index: number)=><CatalogItem key={index} item={item} addToCart={addToCart} />)}
             </div>
         </section>
     )

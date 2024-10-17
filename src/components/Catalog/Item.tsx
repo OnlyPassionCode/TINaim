@@ -43,4 +43,31 @@ export default class Item{
     getTotalPrice(): number{
         return this.amount * this.price;
     }
+
+    decrementAmount(): number{
+        return --this.amount;
+    }
+
+    incrementAmount(): number{
+        return ++this.amount;
+    }
+
+    addAmount(amount: number){
+        this.amount += amount;
+    }
+
+    equals(item: Item){
+        return this.getId() === item.getId();
+    }
+
+    createItem(): Item{
+        return new Item(
+            this.getId(),
+            this.getName(),
+            this.getPrice(),
+            this.getDescription(),
+            1,
+            this.getImageUrl()
+        );
+    }
 }
