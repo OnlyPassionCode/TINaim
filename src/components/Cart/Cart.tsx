@@ -59,7 +59,7 @@ type CartProps = {
 function Cart({cart, removeFromCart, incrementItem, decrementItem} : CartProps){
     return (
     <>
-    <div id="cart" className="relative xl:max-w-[325px] xl:min-w-[325px] bg-gray-100 rounded-md xl:fixed right-0 bottom-0 top-0 overflow-y-auto max-h-screen mt-5 xl:mt-0">
+    <div id="cart" onLoad={(e)=>(e.target as HTMLElement).focus()} className="relative xl:max-w-[325px] xl:min-w-[325px] bg-gray-100 rounded-md xl:fixed right-0 bottom-0 top-0 overflow-y-auto max-h-screen mt-5 xl:mt-0">
         <div className="bg-gray border-gray-200 min-h-[70px] max-h-[70px] flex justify-center align-center"><img className="w-[85px] h-[85px]" src="/images/cart.svg" alt="Image d'un cadis" /></div>
         {cart.length > 0 && <hr className="border-gray-300 mt-4" />}
         <div className="space-y-4 p-6">
