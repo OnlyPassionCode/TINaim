@@ -66,7 +66,7 @@ function App() {
   }
 
   return (
-    <main className='lg:flex'>
+    <main>
       <Catalog items={items} addToCart={addToCart}></Catalog>
       <Cart cart={cart} removeFromCart={removeFromCart} incrementItem={incrementItem} decrementItem={decrementItem}></Cart>
     </main>

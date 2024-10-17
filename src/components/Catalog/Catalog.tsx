@@ -61,7 +61,7 @@ type CatalogProps = {
 
 export default function Catalog({items, addToCart} : CatalogProps){
     return (
-        <section className='w-full lg:w-[85%] m-auto'>
+        <section className='w-full lg:w-[85%]'>
             <div className="flex justify-center lg:justify-start flex-wrap">
                 {items.map((item: Item, index: number)=><CatalogItem key={index} item={item} addToCart={addToCart} />)}
             </div>
