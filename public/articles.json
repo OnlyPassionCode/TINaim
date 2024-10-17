@@ -1,0 +1,106 @@
+[
+    {
+        "id": 1,
+        "name": "T-shirt Blanc",
+        "price": 20,
+        "description": "Un t-shirt confortable en coton.",
+        "amount": 10,
+        "imageUrl": "tshirt_blanc.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Chaussures de sport",
+        "price": 50,
+        "description": "Des chaussures légères pour la course.",
+        "amount": 5,
+        "imageUrl": "chaussures_sport.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Casquette Noire",
+        "price": 15,
+        "description": "Une casquette élégante pour un style décontracté.",
+        "amount": 20,
+        "imageUrl": "casquette_noire.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Jean Slim Fit",
+        "price": 40,
+        "description": "Un jean slim fit pour un look moderne.",
+        "amount": 8,
+        "imageUrl": "jean_slim_fit.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Sweat à capuche",
+        "price": 35,
+        "description": "Un sweat à capuche chaud et confortable.",
+        "amount": 12,
+        "imageUrl": "sweat_capuche.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Montre",
+        "price": 80,
+        "description": "Une montre classique et élégante.",
+        "amount": 3,
+        "imageUrl": "montre.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Sac à dos",
+        "price": 25,
+        "description": "Un sac à dos spacieux et résistant.",
+        "amount": 15,
+        "imageUrl": "sac_a_dos.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Lunettes de soleil",
+        "price": 30,
+        "description": "Des lunettes de soleil avec protection UV.",
+        "amount": 18,
+        "imageUrl": "lunettes_soleil.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Chaussettes en coton",
+        "price": 5,
+        "description": "Paire de chaussettes en coton doux.",
+        "amount": 50,
+        "imageUrl": "chaussettes_coton.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Gants en cuir",
+        "price": 45,
+        "description": "Des gants en cuir véritable pour l'hiver.",
+        "amount": 7,
+        "imageUrl": "gants_cuir.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Echarpe en laine",
+        "price": 25,
+        "description": "Une écharpe douce et chaude en laine.",
+        "amount": 10,
+        "imageUrl": "echarpe_laine.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Ceinture en cuir",
+        "price": 20,
+        "description": "Ceinture en cuir robuste avec boucle métallique.",
+        "amount": 14,
+        "imageUrl": "ceinture_cuir.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Veste en jean",
+        "price": 60,
+        "description": "Une veste en jean classique et tendance.",
+        "amount": 6,
+        "imageUrl": "veste_jean.jpg"
+    }
+]
