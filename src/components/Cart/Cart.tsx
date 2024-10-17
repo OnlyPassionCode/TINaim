@@ -1,5 +1,6 @@
 import Item from "../Catalog/Item";
 import totalItems from "../utils/totalItems";
+import Button from "../Button/Button";
 
 
 type CartItem = {
@@ -64,6 +65,7 @@ function Cart({cart, removeFromCart, incrementItem, decrementItem} : CartProps){
             {cart.map((item: Item, index: number)=><CartItem key={index} item={item} removeFromCart={removeFromCart} incrementItem={incrementItem} decrementItem={decrementItem} />)}
             <hr className="border-gray-300" />
         </div>
+        <Button onClick={() => {return}} disabled={false} >Confirmer la commande</Button>
     </div>
     </>
 )
