@@ -3,6 +3,8 @@ import Cart from './components/Cart/Cart';
 import { useCallback, useState } from 'react';
 import useItems from './hooks/useItems';
 import Item from './components/Catalog/Item';
+import Navbar from './components/Navbar/Navbar';
+
 function App() {
   const { items, loading, error } = useItems();
   const [cart, setCart] = useState<Item[]>([]);
@@ -66,10 +68,13 @@ function App() {
   }
 
   return (
+    <>
+    <Navbar></Navbar>
     <main>
       <Catalog items={items} addToCart={addToCart}></Catalog>
       <Cart cart={cart} removeFromCart={removeFromCart} incrementItem={incrementItem} decrementItem={decrementItem}></Cart>
     </main>
+    </>
   );
 }
 

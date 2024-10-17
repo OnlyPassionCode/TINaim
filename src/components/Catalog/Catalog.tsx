@@ -2,12 +2,12 @@ import Item from './Item';
 
 type CatalogItemProps = {
     item: Item,
-    addToCart: any
+    addToCart: CallableFunction
 };
 
 function CatalogItem({item, addToCart}: CatalogItemProps){
     return (
-    <div className="flex flex-col w-[90%] max-w-[23rem] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:ml-4 mt-4">
+    <div className="flex flex-col md:me-4 lg:me-0 w-[80%] max-w-[23rem] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:ml-4 mt-4">
         <div className='flex-grow flex justify-center cursor-pointer'>
             <img className="transform transition-transform duration-300 hover:scale-105 p-8 rounded-t-lg w-[300px] h-[300px] w-full h-full object-contain" src={"/images/resized/webp/" + item.getImageUrl()} alt={item.getName()} />
         </div>
