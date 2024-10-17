@@ -5,7 +5,7 @@
         "price": 20,
         "description": "Un t-shirt confortable en coton.",
         "amount": 10,
-        "imageUrl": "tshirt_blanc.jpg"
+        "imageUrl": "tshirt_blanc.webp"
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "price": 50,
         "description": "Des chaussures légères pour la course.",
         "amount": 5,
-        "imageUrl": "chaussures_sport.jpg"
+        "imageUrl": "chaussures_sport.webp"
     },
     {
         "id": 3,
@@ -21,7 +21,7 @@
         "price": 15,
         "description": "Une casquette élégante pour un style décontracté.",
         "amount": 20,
-        "imageUrl": "casquette_noire.jpg"
+        "imageUrl": "casquette_noire.webp"
     },
     {
         "id": 4,
@@ -29,7 +29,7 @@
         "price": 40,
         "description": "Un jean slim fit pour un look moderne.",
         "amount": 8,
-        "imageUrl": "jean_slim_fit.jpg"
+        "imageUrl": "jean_slim_fit.webp"
     },
     {
         "id": 5,
@@ -37,7 +37,7 @@
         "price": 35,
         "description": "Un sweat à capuche chaud et confortable.",
         "amount": 12,
-        "imageUrl": "sweat_capuche.jpg"
+        "imageUrl": "sweat_capuche.webp"
     },
     {
         "id": 6,
@@ -45,7 +45,7 @@
         "price": 80,
         "description": "Une montre classique et élégante.",
         "amount": 3,
-        "imageUrl": "montre.jpg"
+        "imageUrl": "montre.webp"
     },
     {
         "id": 7,
@@ -53,7 +53,7 @@
         "price": 25,
         "description": "Un sac à dos spacieux et résistant.",
         "amount": 15,
-        "imageUrl": "sac_a_dos.jpg"
+        "imageUrl": "sac_a_dos.webp"
     },
     {
         "id": 8,
@@ -61,7 +61,7 @@
         "price": 30,
         "description": "Des lunettes de soleil avec protection UV.",
         "amount": 18,
-        "imageUrl": "lunettes_soleil.jpg"
+        "imageUrl": "lunettes_soleil.webp"
     },
     {
         "id": 9,
@@ -69,7 +69,7 @@
         "price": 5,
         "description": "Paire de chaussettes en coton doux.",
         "amount": 50,
-        "imageUrl": "chaussettes_coton.jpg"
+        "imageUrl": "chaussettes_coton.webp"
     },
     {
         "id": 10,
@@ -77,7 +77,7 @@
         "price": 45,
         "description": "Des gants en cuir véritable pour l'hiver.",
         "amount": 7,
-        "imageUrl": "gants_cuir.jpg"
+        "imageUrl": "gants_cuir.webp"
     },
     {
         "id": 11,
@@ -85,7 +85,7 @@
         "price": 25,
         "description": "Une écharpe douce et chaude en laine.",
         "amount": 10,
-        "imageUrl": "echarpe_laine.jpg"
+        "imageUrl": "echarpe_laine.webp"
     },
     {
         "id": 12,
@@ -93,7 +93,7 @@
         "price": 20,
         "description": "Ceinture en cuir robuste avec boucle métallique.",
         "amount": 14,
-        "imageUrl": "ceinture_cuir.jpg"
+        "imageUrl": "ceinture_cuir.webp"
     },
     {
         "id": 13,
@@ -101,6 +101,6 @@
         "price": 60,
         "description": "Une veste en jean classique et tendance.",
         "amount": 6,
-        "imageUrl": "veste_jean.jpg"
+        "imageUrl": "veste_jean.webp"
     }
 ]

@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
 import Item from './Item';
-import ItemType from './ItemType';
 
 type CatalogItemProps = {
     item: Item;
@@ -8,10 +6,10 @@ type CatalogItemProps = {
 
 function CatalogItem({item}: CatalogItemProps){
     return (
-    <div className="w-[90%] sm:w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 sm:ml-4 mt-4">
-        <a href="#">
-            <img className="p-8 rounded-t-lg w-[400px] h-[400px] w-full h-full object-contain" src={"/images/" + item.getImageUrl()} alt={item.getName()} />
-        </a>
+    <div className="flex flex-col w-[90%] max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:ml-4 mt-4">
+        <div className='flex-grow flex justify-center'>
+            <img className="transform transition-transform duration-300 hover:scale-105 p-8 rounded-t-lg w-[300px] h-[300px] w-full h-full object-contain" src={"/images/resized/webp/" + item.getImageUrl()} alt={item.getName()} />
+        </div>
         <div className="px-5 pb-5">
             <a href="#">
                 <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{item.getDescription()}</h5>
@@ -56,32 +54,17 @@ function CatalogItem({item}: CatalogItemProps){
     </div>);
 }
 
-export default function Catalog(){
-    const [items, setItems] = useState<Item[]>([]);
+type CatalogProps = {
+    items: Item[],
+    addToCart: CallableFunction
+};
 
-    useEffect(()=>{
-        fetch("/articles.json")
-        .then((response) => {
-            if (!response.ok) 
-                throw new Error("Erreur lors du chargement des articles.");
-            return response.json();
-        })
-        .then((data: ItemType[]) => {
-            const items: Item[] = [];
-            for(let i = 0; i < data.length; ++i){
-                const item = data[i];
-                items.push(new Item(item.id, item.name, item.price, item.description, item.amount, item.imageUrl));
-            }
-            setItems(items);
-        })
-        .catch((error) => {
-            console.error("Erreur:", error);
-        });
-    }, []);
-
+export default function Catalog({items, addToCart} : CatalogProps){
     return (
-        <section className="w-full sm:w-[75%] flex justify-center sm:justify-start flex-wrap">
-            {items.map((item: Item, index: number)=><CatalogItem key={index} item={item} />)}
+        <section className='w-full lg:w-[85%] m-auto'>
+            <div className="flex justify-center lg:justify-start flex-wrap">
+                {items.map((item: Item, index: number)=><CatalogItem key={index} item={item} />)}
+            </div>
         </section>
     )
 }
