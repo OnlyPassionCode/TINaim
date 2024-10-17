@@ -1,6 +1,6 @@
 function Navbar(){
     return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 min-h-[70px] max-h-[70px] mb-11 md:mb-0 lg:w-[81%]">
+    <nav className="bg-white border-gray-200 dark:bg-gray-900 min-h-[70px] max-h-[70px] mb-11 md:mb-0 xl:w-[calc(100%-325px)]">
         <div className="max-w-screen-xl flex flex-wrap items-center mx-auto p-4">
             <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="/logo.svg" className="h-8" alt="Flowbite Logo" />

@@ -58,7 +58,7 @@ type CartProps = {
 function Cart({cart, removeFromCart, incrementItem, decrementItem} : CartProps){
     return (
     <>
-    <div className="md:max-w-[19%] md:min-w-[19%] bg-gray-100 p-6 rounded-md lg:fixed right-0 bottom-0 top-0 overflow-y-auto max-h-screen">
+    <div className="xl:max-w-[325px] xl:min-w-[325px] bg-gray-100 p-6 rounded-md xl:fixed right-0 bottom-0 top-0 overflow-y-auto max-h-screen">
         <h2 className="text-2xl font-extrabold text-gray-800">Votre panier: <span className="text-green-900">{totalItems(cart)}€</span></h2>
         {cart.length > 0 && <hr className="border-gray-300 mt-4" />}
         <div className="space-y-4 mt-8">

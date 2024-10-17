@@ -1,25 +1,36 @@
 import Catalog from './components/Catalog/Catalog';
 import Cart from './components/Cart/Cart';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import useItems from './hooks/useItems';
 import Item from './components/Catalog/Item';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
+import parseLocalStorage from './components/utils/parseLocalStorage';
 
 function App() {
   const { items, loading, error } = useItems();
   const [cart, setCart] = useState<Item[]>([]);
+
+  useEffect(() => {
+    if(!loading && localStorage.getItem('articles') !== null)
+      setCart(parseLocalStorage(items));
+  }, [loading])
 
   const addToCart = useCallback((item: Item) => {
     if(item.getAmount() === 0) return; // cannot add a empty item
     item.decrementAmount();
     setCart((prevCart: Item[]) => {
       const indexCart = prevCart.findIndex(currentItem=>currentItem.equals(item));
-      if(indexCart === -1)
-        return [...prevCart, item.createItem()];
-      const cartItem = prevCart[indexCart];
-      cartItem.incrementAmount();
-      return [...prevCart];
+      let toReturn: Item[]|null = null;
+      if(indexCart === -1){
+        toReturn = [...prevCart, item.createItem()];
+      }else{
+        const cartItem = prevCart[indexCart];
+        cartItem.incrementAmount();
+        toReturn = [...prevCart];
+      }
+      localStorage.setItem('articles', JSON.stringify(toReturn));
+      return toReturn;
     });
   }, []);
 
@@ -30,7 +41,9 @@ function App() {
       if(indexCart === -1 || indexItem === -1) return prevCart;
       items[indexItem].addAmount(item.getAmount());
       prevCart.splice(indexCart, 1);
-      return [...prevCart];
+      let toReturn: Item[] = [...prevCart];
+      localStorage.setItem('articles', JSON.stringify(toReturn));
+      return toReturn;
     });
   }, [items]);
 
@@ -41,7 +54,9 @@ function App() {
       if(items[indexItem].getAmount() === 0) return prevCart;
       items[indexItem].decrementAmount();
       item.incrementAmount();
-      return [...prevCart];
+      let toReturn: Item[] = [...prevCart];
+      localStorage.setItem('articles', JSON.stringify(toReturn));
+      return toReturn;
     });
   }, [items]);
 
@@ -56,7 +71,9 @@ function App() {
         if(indexCart === -1) return prevCart;
         prevCart.splice(indexCart, 1);
       }
-      return [...prevCart];
+      let toReturn: Item[] = [...prevCart];
+      localStorage.setItem('articles', JSON.stringify(toReturn));
+      return toReturn;
     });
   }, [items]);
 
