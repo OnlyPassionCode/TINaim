@@ -4,6 +4,7 @@ import { useCallback, useState } from 'react';
 import useItems from './hooks/useItems';
 import Item from './components/Catalog/Item';
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const { items, loading, error } = useItems();
@@ -74,6 +75,7 @@ function App() {
       <Catalog items={items} addToCart={addToCart}></Catalog>
       <Cart cart={cart} removeFromCart={removeFromCart} incrementItem={incrementItem} decrementItem={decrementItem}></Cart>
     </main>
+    <Footer></Footer>
     </>
   );
 }
