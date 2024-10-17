@@ -10,7 +10,7 @@ function CatalogItem({item, addToCart}: CatalogItemProps){
     return (
     <div className="flex flex-col me-4 lg:me-0 w-[80%] max-w-sm xl:max-w-[23rem] border rounded-lg shadow bg-gray-800 border-gray-700 lg:ml-4 mt-4">
         <div className='flex-grow flex justify-center cursor-pointer'>
-            <img className="transform transition-transform duration-300 hover:scale-105 p-8 rounded-t-lg overflow-x-hidden max-w-[350px] max-h-[350px] md:max-w-[375px] md:max-h-[375px] object-contain select-none" src={"/images/resized/webp/" + item.getImageUrl()} alt={item.getName()} />
+            <img className="transform transition-transform duration-300 hover:scale-105 p-8 rounded-t-lg overflow-x-hidden max-w-[375px] max-h-[375px] object-contain select-none" src={"/images/resized/webp/" + item.getImageUrl()} alt={item.getName()} />
         </div>
         <div className="px-5 pb-5">
             <h5 className="text-xl font-semibold tracking-tight text-white">{item.getDescription()}</h5>
@@ -53,14 +53,15 @@ function CatalogItem({item, addToCart}: CatalogItemProps){
 
 type CatalogProps = {
     items: Item[],
-    addToCart: CallableFunction
+    addToCart: CallableFunction,
+    search: string,
 };
 
-export default function Catalog({items, addToCart} : CatalogProps){
+export default function Catalog({items, addToCart, search} : CatalogProps){
     return (
-        <section className='w-full xl:w-[calc(100%-325px)]'>
+        <section className='w-full min-h-[80vh] xl:w-[calc(100%-325px)]'>
             <div className="flex justify-center flex-wrap">
-                {items.map((item: Item, index: number)=><CatalogItem key={index} item={item} addToCart={addToCart} />)}
+                {items.filter((item: Item)=>item.getName().toLowerCase().includes(search.toLowerCase())).map((item: Item, index: number)=><CatalogItem key={index} item={item} addToCart={addToCart} />)}
             </div>
         </section>
     )

@@ -1,4 +1,9 @@
-function Navbar(){
+type NavbarProps = {
+    search: string,
+    setSearch: CallableFunction
+}
+
+function Navbar({search, setSearch}: NavbarProps){
     return (
     <nav className="mb-[45px] cart:mb-0 relative flex justify-between cart:justify-start border-gray-200 bg-gray-900 min-h-[70px] max-h-[70px] xl:w-[calc(100%-325px)]">
         <div className="max-w-screen-xl flex flex-wrap items-center cart:mx-auto p-4">
@@ -13,7 +18,7 @@ function Navbar(){
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                         </svg>
                     </div>
-                    <input type="text" id="search-navbar" className="block w-[80vw] cart:w-[500px] p-2 ps-10 text-sm border rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Rechercher..."/>
+                    <input value={search} onChange={(e)=>setSearch(e.target.value)} type="text" id="search-navbar" className="block w-[80vw] cart:w-[500px] p-2 ps-10 text-sm border rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Rechercher..."/>
                 </div>
             </div>
         </div>

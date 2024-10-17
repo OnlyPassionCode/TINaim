@@ -10,6 +10,7 @@ import parseLocalStorage from './components/utils/parseLocalStorage';
 function App() {
   const { items, loading, error } = useItems();
   const [cart, setCart] = useState<Item[]>([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     if(!loading && localStorage.getItem('articles') !== null)
@@ -87,9 +88,9 @@ function App() {
 
   return (
     <>
-    <Navbar></Navbar>
+    <Navbar search={search} setSearch={setSearch}></Navbar>
     <main>
-      <Catalog items={items} addToCart={addToCart}></Catalog>
+      <Catalog items={items} search={search} addToCart={addToCart}></Catalog>
       <Cart cart={cart} removeFromCart={removeFromCart} incrementItem={incrementItem} decrementItem={decrementItem}></Cart>
     </main>
     <Footer></Footer>
