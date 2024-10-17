@@ -36,7 +36,7 @@ function CatalogItem({item, addToCart}: CatalogItemProps){
                     <span className="text-xs font-semibold px-2.5 py-0.5 rounded bg-blue-200 text-blue-800 ms-3">5.0</span>
                 </div>
                 <div className="flex items-center mt-2.5 mb-5">
-                    <span className="text-xl tracking-tight text-white">
+                    <span className="text-sm md:text-xl tracking-tight text-white">
                     {item.getAmount() > 0 
                     ? `${item.getAmount()} article${item.getAmount() > 1 ? "s" : ""} restant` 
                     : <span className="text-red-900">Plus de stock</span>}
