@@ -10,7 +10,7 @@ function CatalogItem({item, addToCart}: CatalogItemProps){
     return (
     <div className="flex flex-col me-4 lg:me-0 w-[80%] max-w-sm xl:max-w-[23rem] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:ml-4 mt-4">
         <div className='flex-grow flex justify-center cursor-pointer'>
-            <img className="transform transition-transform duration-300 hover:scale-105 p-8 rounded-t-lg w-[300px] h-[300px] w-full h-full object-contain" src={"/images/resized/webp/" + item.getImageUrl()} alt={item.getName()} />
+            <img className="transform transition-transform duration-300 hover:scale-105 p-8 rounded-t-lg max-w-[375px] max-h-[375px] object-contain" src={"/images/resized/webp/" + item.getImageUrl()} alt={item.getName()} />
         </div>
         <div className="px-5 pb-5">
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{item.getDescription()}</h5>

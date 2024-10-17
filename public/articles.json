@@ -102,5 +102,14 @@
         "description": "Une veste en jean classique et tendance.",
         "amount": 6,
         "imageUrl": "veste_jean.webp"
+    },
+    {
+        "id": 14,
+        "name": "Sac à dos de randonnée",
+        "price": 75,
+        "description": "Un sac à dos robuste et spacieux, idéal pour les longues randonnées.",
+        "amount": 10,
+        "imageUrl": "sac_a_dos_randonnee.webp"
     }
+    
 ]
