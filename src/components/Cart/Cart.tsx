@@ -13,7 +13,7 @@ type CartItem = {
 
 function CartItem({item, removeFromCart, incrementItem, decrementItem}: CartItem){
     return (
-    <div className="flex items-center justify-center xl:justify-start gap-4">
+    <div className="flex items-center justify-center xl:justify-start gap-4 max-w-[325px] max-h-[325px]">
         <div className="w-36 h-36 shrink-0 bg-white p-2 rounded-md">
             <img src={"/images/resized/webp/" + item.getImageUrl()} className="w-full h-full object-contain select-none pointer-events-none" />
         </div>
@@ -60,11 +60,13 @@ function Cart({cart, removeFromCart, incrementItem, decrementItem} : CartProps){
     return (
     <>
     <div id="cart" onLoad={(e)=>(e.target as HTMLElement).focus()} className="relative xl:max-w-[325px] xl:min-w-[325px] bg-gray-100 rounded-md xl:fixed right-0 bottom-0 top-0 overflow-y-auto max-h-screen mt-5 xl:mt-0">
-        <div className="bg-gray border-gray-200 min-h-[70px] max-h-[70px] flex justify-center align-center"><img className="w-[85px] h-[85px]" src="/images/cart.svg" alt="Image d'un cadis" /></div>
-        {cart.length > 0 && <hr className="border-gray-300 mt-4" />}
-        <div className="space-y-4 p-6">
-            {cart.map((item: Item, index: number)=><CartItem key={index} item={item} removeFromCart={removeFromCart} incrementItem={incrementItem} decrementItem={decrementItem} />)}
-            <hr className="border-gray-300" />
+        <div className="flex flex-col justify-center">
+            <div className="bg-gray border-gray-200 min-h-[70px] max-h-[70px] flex justify-center align-center"><img className="w-[85px] h-[85px]" src="/images/cart.svg" alt="Image d'un cadis" /></div>
+            {cart.length > 0 && <hr className="border-gray-300 mt-4" />}
+            <div className="space-y-4 p-6 flex flex-col items-center">
+                {cart.map((item: Item, index: number)=><CartItem key={index} item={item} removeFromCart={removeFromCart} incrementItem={incrementItem} decrementItem={decrementItem} />)}
+                <hr className="border-gray-300 w-full" />
+            </div>
         </div>
         <FormValidation totalPrice={totalItems(cart)}></FormValidation>
     </div>
