@@ -1,6 +1,6 @@
 import Catalog from './components/Catalog/Catalog';
 import Cart from './components/Cart/Cart';
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import useItems from './hooks/useItems';
 import Item from './components/Catalog/Item';
 import Navbar from './components/Navbar/Navbar';
@@ -8,12 +8,14 @@ import Footer from './components/Footer/Footer';
 import useLocalStorage from './hooks/useLocalStorage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Article from './components/Article/Article';
+import ModalValidation from './components/ModalValidation/ModalValidation';
 
 function App() {
   const { items, loading, error } = useItems();
   const [cart, setCart] = useState<Item[]>([]);
   const localStorageLoading = useLocalStorage({items, setCart, itemsLoading: loading});
   const [search, setSearch] = useState("");
+  const modalRef = useRef(null);
 
   const addToCart = useCallback((item: Item) => {
     if(item.getAmount() === 0) return; // cannot add a empty item
@@ -94,7 +96,8 @@ function App() {
           <Route path='/article/:id' element=<Article items={items} addToCart={addToCart} />/>
         </Routes>
       </BrowserRouter>
-      <Cart cart={cart} removeFromCart={removeFromCart} incrementItem={incrementItem} decrementItem={decrementItem}></Cart>
+      <Cart cart={cart} removeFromCart={removeFromCart} incrementItem={incrementItem} decrementItem={decrementItem} modalRef={modalRef}></Cart>
+      <ModalValidation setCart={setCart} modalRef={modalRef}></ModalValidation>
     </main>
     <Footer></Footer>
     </>

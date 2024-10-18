@@ -5,3 +5,7 @@
 html {
     scroll-behavior: smooth;
 }
+
+dialog:-internal-dialog-in-top-layer::backdrop{
+    background-color: rgba(17,24,39,.5);
+}

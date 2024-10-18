@@ -53,10 +53,11 @@ type CartProps = {
     cart: Item[],
     removeFromCart: CallableFunction,
     incrementItem: CallableFunction,
-    decrementItem: CallableFunction
+    decrementItem: CallableFunction,
+    modalRef: React.MutableRefObject<null>
 };
 
-function Cart({cart, removeFromCart, incrementItem, decrementItem} : CartProps){
+function Cart({cart, removeFromCart, incrementItem, decrementItem, modalRef} : CartProps){
     return (
     <>
     <div id="cart" onLoad={(e)=>(e.target as HTMLElement).focus()} className="relative xl:max-w-[325px] xl:min-w-[325px] bg-gray-100 rounded-md xl:fixed right-0 bottom-0 top-0 overflow-y-auto max-h-screen mt-5 xl:mt-0">
@@ -68,7 +69,7 @@ function Cart({cart, removeFromCart, incrementItem, decrementItem} : CartProps){
                 <hr className="border-gray-300 w-full" />
             </div>
         </div>
-        <FormValidation totalPrice={totalItems(cart)}></FormValidation>
+        <FormValidation totalPrice={totalItems(cart)} modalRef={modalRef}></FormValidation>
     </div>
     </>
 )

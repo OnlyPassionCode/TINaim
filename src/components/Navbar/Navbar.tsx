@@ -18,7 +18,7 @@ function Navbar({search, setSearch}: NavbarProps){
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                         </svg>
                     </div>
-                    <input value={search} onChange={(e)=>setSearch(e.target.value)} type="text" id="search-navbar" className="block w-[80vw] cart:w-[500px] p-2 ps-10 text-sm border rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Rechercher..."/>
+                    <input value={search} onChange={(e)=>setSearch(e.target.value)} type="text" id="search-navbar" className="block w-[75vw] cart:w-[500px] p-2 ps-10 text-sm border rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Rechercher..."/>
                 </div>
             </div>
         </div>
