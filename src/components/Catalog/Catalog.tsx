@@ -1,5 +1,6 @@
 import Item from './Item';
 import Button from '../Button/Button';
+import { Link } from 'react-router-dom';
 
 type CatalogItemProps = {
     item: Item,
@@ -9,9 +10,9 @@ type CatalogItemProps = {
 function CatalogItem({item, addToCart}: CatalogItemProps){
     return (
     <div className="flex flex-col me-4 lg:me-0 w-[80%] max-w-sm xl:max-w-[23rem] border rounded-lg shadow bg-gray-800 border-gray-700 lg:ml-4 mt-4">
-        <div className='flex-grow flex justify-center cursor-pointer'>
+        <Link to={"/article/" + item.getId()} className='flex-grow flex justify-center cursor-pointer'>
             <img className="transform transition-transform duration-300 hover:scale-105 p-8 rounded-t-lg overflow-x-hidden max-w-[375px] max-h-[375px] object-contain select-none" src={"/images/resized/webp/" + item.getImageUrl()} alt={item.getName()} />
-        </div>
+        </Link>
         <div className="px-5 pb-5">
             <h5 className="text-xl font-semibold tracking-tight text-white">{item.getDescription()}</h5>
             <div className="flex justify-between">

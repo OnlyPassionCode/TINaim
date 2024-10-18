@@ -6,6 +6,8 @@ import Item from './components/Catalog/Item';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import useLocalStorage from './hooks/useLocalStorage';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Article from './components/Article/Article';
 
 function App() {
   const { items, loading, error } = useItems();
@@ -86,7 +88,12 @@ function App() {
     <>
     <Navbar search={search} setSearch={setSearch}></Navbar>
     <main>
-      <Catalog items={items} search={search} addToCart={addToCart}></Catalog>
+      <BrowserRouter basename="/">
+        <Routes>
+          <Route path='/' element=<Catalog items={items} search={search} addToCart={addToCart}></Catalog>/>
+          <Route path='/article/:id' element=<Article items={items} addToCart={addToCart} />/>
+        </Routes>
+      </BrowserRouter>
       <Cart cart={cart} removeFromCart={removeFromCart} incrementItem={incrementItem} decrementItem={decrementItem}></Cart>
     </main>
     <Footer></Footer>
