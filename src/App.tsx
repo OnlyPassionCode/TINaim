@@ -1,21 +1,17 @@
 import Catalog from './components/Catalog/Catalog';
 import Cart from './components/Cart/Cart';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import useItems from './hooks/useItems';
 import Item from './components/Catalog/Item';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import parseLocalStorage from './components/utils/parseLocalStorage';
+import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
   const { items, loading, error } = useItems();
   const [cart, setCart] = useState<Item[]>([]);
+  const localStorageLoading = useLocalStorage({items, setCart, itemsLoading: loading});
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    if(!loading && localStorage.getItem('articles') !== null)
-      setCart(parseLocalStorage(items));
-  }, [loading])
 
   const addToCart = useCallback((item: Item) => {
     if(item.getAmount() === 0) return; // cannot add a empty item
@@ -78,14 +74,14 @@ function App() {
     });
   }, [items]);
 
-  if (loading) {
+  if (loading || localStorageLoading) {
     return <div>Chargement des articles...</div>;
   }
 
   if (error) {  
     return <div>Erreur : {error}</div>;
   }
-
+  
   return (
     <>
     <Navbar search={search} setSearch={setSearch}></Navbar>
