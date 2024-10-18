@@ -1,6 +1,5 @@
 import Item from "../Catalog/Item";
 import totalItems from "../utils/totalItems";
-import Button from "../Button/Button";
 import FormValidation from "../FormValidation/FormValidation";
 
 
