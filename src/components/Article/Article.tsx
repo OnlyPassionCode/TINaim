@@ -1,6 +1,7 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Item from "../Catalog/Item";
 import Button from "../Button/Button";
+import { useEffect } from "react";
 
 type ArticleProps = {
     items: Item[],
@@ -9,7 +10,27 @@ type ArticleProps = {
 
 function Article({items, addToCart}: ArticleProps){
     let { id } = useParams();
-    const idItem: number = id !== undefined ? parseInt(id) : 1;
+    const navigate = useNavigate(); 
+    if(id === undefined){
+        useEffect(()=>{
+            navigate("/");
+        }, [navigate])
+        return <div></div>;
+    }
+    const idItem = parseInt(id);
+    if(isNaN(idItem)){
+        useEffect(()=>{
+            navigate("/");
+        }, [navigate])
+        return <div></div>;
+    }
+    const index = items.findIndex(item=>item.getId() === idItem);
+    if(index === -1){
+        useEffect(()=>{
+            navigate("/");
+        }, [navigate])
+        return <div></div>;
+    }
     const item: Item = items[items.findIndex(item=>item.getId() === idItem)];
     return (
     <section className="flex flex-col items-center justify-center relative mt-[60px] cart:mt-5 xl:w-[calc(100%-325px)] min-h-[75vh]">
